@@ -1,0 +1,50 @@
+/*Style sheet for Animal Trading Card */
+/* By David Alaga */
+
+body{
+	font-family: sans-serif;
+}
+/* The main card container */
+.main-container{
+	background-color: #d2ba7c; 
+	border:3px solid salmon;
+	border-radius: 10px;
+	width: 300px;
+	padding: 5px;
+}
+/* fact, list and information container */
+.bottom-container{
+	background-color: #aab469;
+	border:2px solid green;
+	border-radius: 10px
+	
+}
+/* Animal Name */
+
+.animal-name{
+	color: #832a2a;
+	font-size: 2em;
+	margin:0px;
+}
+/* Animal Image */
+
+ .animal-image{
+	border: 2px solid green;
+	border-radius: 10px;
+	width:300;
+}
+
+.interesting-fact{
+	font-style: italic;
+}
+
+/* unordered list */
+
+.list-label{
+	font-weight:bold;
+}
+
+.favorite-list{
+	list-style-type: square;
+}
+
