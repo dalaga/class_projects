@@ -14,7 +14,7 @@ var bio = {
          "GitHub"
       ],
     "bioPic": "images/fry.jpg"
-}
+};
 
 var education = {
     "schools": [
@@ -29,14 +29,14 @@ var education = {
         "name": "Phoenix University",
         "location": "Phoenix, AZ",
         "degree": "Masters",
-         "majors": ["Information Systems / Management"],
+        "majors": ["Information Systems / Management"],
         "dates": 2007,
       },
       {
         "name": "University of Hawaii",
-        "location": "Honolulu, HI",
+        "location": "HI",
         "degree": "Masters Certificate",
-         "majors": ["TeleComm. Information Resource Management"],
+        "majors": ["TeleComm. Information Resource Management"],
         "dates": 2007,
       },
       {
@@ -69,7 +69,7 @@ var education = {
             "url": "https://www.linkedin.com/learning"
         }
     ]
-}
+};
 
 var work = {
     "jobs": [
@@ -172,7 +172,7 @@ var work = {
         "description": "Managed, designed, implemented, monitored, maintained operations of Copper and Fiber plant facilities., Marine Security Embassy Guard Duty (MSG) (Top Clearance)"
       }
     ]
-}
+};
 
 var projects = {
     "projects": [
@@ -183,7 +183,7 @@ var projects = {
         "image": "http://placehold.it/200x100"
         }
      ]
-}
+};
 
 if(bio.skills.length > 0) {
     $('#header').append(HTMLskillsStart);
@@ -199,7 +199,7 @@ if(bio.skills.length > 0) {
     $('#skills').append(formattedSkill);
     var formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
     $('#skills').append(formattedSkill);
- };
+ }
 
  bio.display = function() {
 
@@ -225,7 +225,7 @@ if(bio.skills.length > 0) {
         $(id).append(formattedEmail);
         $(id).append(formattedGitHub);
         $(id).append(formattedLocation);
-    };
+    }
 };
 
 bio.display();
@@ -239,11 +239,11 @@ work.display = function () {
         var formattedEmployerTitle = formattedEmployer +
         formatttedTitle;
         $('.work-entry:last').append(formattedEmployerTitle);
-        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[j].dates)
+        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[j].dates);
         $('.work-entry:last').append(formattedDates);
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[j].description);
         $('.work-entry:last').append(formattedDescription);
-};
+}
 };
 
 work.display();
@@ -261,7 +261,7 @@ education.display = function() {
         $('.education-entry:last').append(formattedDate);
         var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[e].majors);
         $('.education-entry:last').append(formattedMajor);
-    };
+    }
         $('#education').append(HTMLonlineClasses);
     for(i = 0; i < education.onlineCourses.length; i ++){
         $('#education').append(HTMLschoolStart);
@@ -271,7 +271,7 @@ education.display = function() {
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
         var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
         $('.education-entry:last').append(formattedSchool, formattedtitle, formattedDates, formattedURL);
-   };
+   }
 
 };
 
@@ -290,7 +290,7 @@ projects.display = function() {
     $('.project-entry:last').append(formattedDescription);
     var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[p].image);
     $('.project-entry:last').append(formattedImage);
-        };
+        }
 };
 
 projects.display();
@@ -308,9 +308,9 @@ function locationizer(work_obj){
     for(j = 0; j < work_obj.jobs.length; j++) {
         var newLocation = work_obj.jobs[j].location;
         locationArray.push(newLocation);
-    };
+    }
     return locationArray;
-};
+}
 
 locationizer(work);
 
