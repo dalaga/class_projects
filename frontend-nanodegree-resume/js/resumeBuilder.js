@@ -7,12 +7,12 @@ var bio = {
         "github": "dalaga",
         "location": "Washington, DC"
     },
-    "WelcomeMessage": "Welcome to my online resume!",
+    "welcomeMessage": "Welcome to my online resume!",
     "skills": [
         "HTML5", "CSS3", "JavaScript", "JQuery", "BootStrap",
         "GitHub"
     ],
-    "bioPic": "images/fry.jpg"
+    "biopic": "images/fry.jpg"
 };
 
 var education = {
@@ -21,35 +21,40 @@ var education = {
             "location": "Lajolla, CA",
             "degree": "Masters",
             "majors": ["Database Adminstrator"],
-            "dates": 2008,
+            "dates": "2008",
+            "url": "http://www.nationaluniversity.edu"
         },
         {
             "name": "Phoenix University",
             "location": "Phoenix, AZ",
             "degree": "Masters",
             "majors": ["Information Systems / Management"],
-            "dates": 2007,
+            "dates": "2007",
+            "url": "http://www.phoenix.edu"
         },
         {
             "name": "University of Hawaii",
             "location": "HI",
             "degree": "Masters Certificate",
             "majors": ["TeleComm. Information Resource Management"],
-            "dates": 2007,
+            "dates": "2007",
+            "url": "http://www.hawaii.edu"
         },
         {
             "name": "University of Palau",
             "location": "Palau",
             "degree": "Masters Certificate",
             "majors": ["Geographic Information Systems (GIS)"],
-            "dates": 2005,
+            "dates": "2005",
+            "url": "http://www.ppc.palau.edu"
         },
         {
             "name": "DeVry University",
             "location": "Atlanta, GA",
             "degree": "Bachelors",
             "majors": ["BSEET"],
-            "dates": 1996,
+            "dates": "1996",
+            "url": "http://www.devry.edu"
         },
     ],
 
@@ -175,32 +180,16 @@ var projects = {
         "title": "Malolo Bed and Breakfast, Washington DC",
         "dates": "Oct 2012 - Present",
         "description": "Created and designed Internet Presence, Digital Marketing and manage relationships with travel partners.",
-        "image": "http://placehold.it/200x100"
+        "images": ["http://placehold.it/200x100", "http://placehold.it/100x100"]
     }]
 };
-
-if (bio.skills.length > 0) {
-    $('#header').append(HTMLskillsStart);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $('#skills').append(formattedSkill);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $('#skills').append(formattedSkill);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $('skills').append(formattedSkill);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $('#skills').append(formattedSkill);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-    $('#skills').append(formattedSkill);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
-    $('#skills').append(formattedSkill);
-}
 
 bio.display = function() {
 
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
-    var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.WelcomeMessage);
+    var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+    var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
     $('#header').prepend(formattedMessage);
     $('#header').prepend(formattedPic);
@@ -220,6 +209,13 @@ bio.display = function() {
         $(id).append(formattedGitHub);
         $(id).append(formattedLocation);
     }
+
+    $('#header').append(HTMLskillsStart);
+//Display skills in a for loop
+    for (var b = 0; b < bio.skills.length; b++) {
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[b]);
+        $('#skills').append(formattedSkill);
+}
 };
 
 bio.display();
@@ -237,6 +233,8 @@ work.display = function() {
         $('.work-entry:last').append(formattedDates);
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[j].description);
         $('.work-entry:last').append(formattedDescription);
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[j].location);
+        $('.work-entry:last').append(formattedLocation);
     }
 };
 
@@ -255,6 +253,8 @@ education.display = function() {
         $('.education-entry:last').append(formattedDate);
         var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[e].majors);
         $('.education-entry:last').append(formattedMajor);
+        var formattedEducationURL = HTMLonlineURL.replace("%data%", education.schools[e].url);
+        $('.education-entry:last').append(formattedEducationURL);
     }
     $('#education').append(HTMLonlineClasses);
     for (i = 0; i < education.onlineCourses.length; i++) {
@@ -282,8 +282,17 @@ projects.display = function() {
         $('.project-entry:last').append(formattedDates);
         var formattedDescription = HTMLworkDescription.replace("%data%", projects.projects[p].description);
         $('.project-entry:last').append(formattedDescription);
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[p].image);
-        $('.project-entry:last').append(formattedImage);
+        /* var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[p].images);
+         $('.project-entry:last').append(formattedImage);*/
+    }
+    var proj = projects.projects;
+    //images array looped using for loop
+    for (var i = 0; i < proj.length; i++) {
+        var images = proj[i].images;
+        for (var x = 0; x < images.length; x++) {
+            var formattedImage = HTMLprojectImage.replace("%data%", images[i]);
+            $('.project-entry:last').append(formattedImage);
+        }
     }
 };
 
