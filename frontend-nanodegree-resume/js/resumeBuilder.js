@@ -278,9 +278,9 @@ projects.display = function() {
 
             var proj = projects.projects;
     //images array looped using for loop
-    for (var i = 0; i < proj.length; i++) {
+       for (var i = 0; i < proj.length; i++) {
         var images = proj[i].images;
-        for (var x = 0; x < images.length; x++) {
+         for (var x = 0; x < images.length; x++) {
             var formattedImage = HTMLprojectImage.replace("%data%", images[i]);
             $('.project-entry:last').append(formattedImage);
         }
