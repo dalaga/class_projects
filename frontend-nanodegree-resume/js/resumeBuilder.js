@@ -211,11 +211,11 @@ bio.display = function() {
     }
 
     $('#header').append(HTMLskillsStart);
-//Display skills in a for loop
+    //Display skills in a for loop
     for (var b = 0; b < bio.skills.length; b++) {
         var formattedSkill = HTMLskills.replace("%data%", bio.skills[b]);
         $('#skills').append(formattedSkill);
-}
+    }
 };
 
 work.display = function() {
@@ -276,16 +276,16 @@ projects.display = function() {
         var formattedDescription = HTMLworkDescription.replace("%data%", projects.projects[p].description);
         $('.project-entry:last').append(formattedDescription);
 
-            var proj = projects.projects;
-    //images array looped using for loop
-       for (var i = 0; i < proj.length; i++) {
-        var images = proj[i].images;
-         for (var x = 0; x < images.length; x++) {
-            var formattedImage = HTMLprojectImage.replace("%data%", images[i]);
-            $('.project-entry:last').append(formattedImage);
+        var proj = projects.projects;
+        //images array looped using for loop
+        for (var i = 0; i < proj.length; i++) {
+            var images = proj[i].images;
+            for (var x = 0; x < images.length; x++) {
+                var formattedImage = HTMLprojectImage.replace("%data%", images[i]);
+                $('.project-entry:last').append(formattedImage);
+            }
         }
     }
-  }
 };
 
 $(document).click(function(loc) {
