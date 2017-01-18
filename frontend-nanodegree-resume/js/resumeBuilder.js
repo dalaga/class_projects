@@ -276,9 +276,9 @@ projects.display = function() {
         var formattedDescription = HTMLworkDescription.replace("%data%", projects.projects[p].description);
         $('.project-entry:last').append(formattedDescription);
 
-    for (var image = 0; image < projects.projects[p].images.length; image++) {
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[p].images[image]);
-                $('.project-entry:last').append(formattedImage);
+        for (var image = 0; image < projects.projects[p].images.length; image++) {
+            var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[p].images[image]);
+            $('.project-entry:last').append(formattedImage);
         }
     }
 };
