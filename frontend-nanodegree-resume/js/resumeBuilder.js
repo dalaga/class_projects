@@ -276,14 +276,9 @@ projects.display = function() {
         var formattedDescription = HTMLworkDescription.replace("%data%", projects.projects[p].description);
         $('.project-entry:last').append(formattedDescription);
 
-        var proj = projects.projects;
-        //images array looped using for loop
-        for (var i = 0; i < proj.length; i++) {
-            var images = proj[i].images;
-            for (var x = 0; x < images.length; x++) {
-                var formattedImage = HTMLprojectImage.replace("%data%", images[i]);
+    for (var image = 0; image < projects.projects[p].images.length; image++) {
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[p].images[image]);
                 $('.project-entry:last').append(formattedImage);
-            }
         }
     }
 };
@@ -295,20 +290,9 @@ $(document).click(function(loc) {
     logClicks(x, y);
 });
 
-function locationizer(work_obj) {
-    var locationArray = [];
-
-    for (j = 0; j < work_obj.jobs.length; j++) {
-        var newLocation = work_obj.jobs[j].location;
-        locationArray.push(newLocation);
-    }
-    return locationArray;
-}
-
 bio.display();
 work.display();
 education.display();
 projects.display();
-locationizer(work);
 
 $('#mapDiv').append(googleMap);
