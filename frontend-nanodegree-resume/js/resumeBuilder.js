@@ -65,7 +65,7 @@ var education = {
             "url": "http://www.udacity.com/"
         },
         {
-            "title": "Become an Agile Project Manager - LEARNING PATH",
+            "title": "Become an Agile Project Manager",
             "school": "LinkedIn-inLearning",
             "dates": "Jan 2017",
             "url": "https://www.linkedin.com/learning"
@@ -218,8 +218,6 @@ bio.display = function() {
 }
 };
 
-bio.display();
-
 work.display = function() {
     for (j = 0; j < work.jobs.length; j++) {
         $('#workExperience').append(HTMLworkStart);
@@ -237,8 +235,6 @@ work.display = function() {
         $('.work-entry:last').append(formattedLocation);
     }
 };
-
-work.display();
 
 education.display = function() {
     for (e = 0; e < education.schools.length; e++) {
@@ -264,12 +260,9 @@ education.display = function() {
         var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
         var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
-        $('.education-entry:last').append(formattedSchool, formattedtitle, formattedDates, formattedURL);
+        $('.education-entry:last').append(formattedtitle + formattedSchool, formattedDates, formattedURL);
     }
-
 };
-
-education.display();
 
 projects.display = function() {
     //display code goes here
@@ -282,10 +275,8 @@ projects.display = function() {
         $('.project-entry:last').append(formattedDates);
         var formattedDescription = HTMLworkDescription.replace("%data%", projects.projects[p].description);
         $('.project-entry:last').append(formattedDescription);
-        /* var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[p].images);
-         $('.project-entry:last').append(formattedImage);*/
-    }
-    var proj = projects.projects;
+
+            var proj = projects.projects;
     //images array looped using for loop
     for (var i = 0; i < proj.length; i++) {
         var images = proj[i].images;
@@ -294,9 +285,8 @@ projects.display = function() {
             $('.project-entry:last').append(formattedImage);
         }
     }
+  }
 };
-
-projects.display();
 
 $(document).click(function(loc) {
     var x = loc.pageX;
@@ -315,6 +305,10 @@ function locationizer(work_obj) {
     return locationArray;
 }
 
+bio.display();
+work.display();
+education.display();
+projects.display();
 locationizer(work);
 
 $('#mapDiv').append(googleMap);
