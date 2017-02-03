@@ -170,7 +170,7 @@ var work = {
             "title": "Telecommunications Specialist",
             "location": "Jacksonville, NC",
             "dates": "Sept 1984 - sept 1992",
-            "description": "Managed, designed, implemented, monitored, maintained operations of Copper and Fiber plant facilities., Marine Security Embassy Guard Duty (MSG) (Top Clearance)"
+            "description": "Managed, designed, implemented, monitored, maintained operations of Copper and Fiber plant facilities., Marine Security Embassy Guard Duty"
         }
     ]
 };
